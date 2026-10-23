@@ -1,0 +1,11 @@
+# Cloudflare Pages configuration for BioType / BioMarkers
+# Approved production URL: https://biotype.pages.dev/markers
+name = "biotype"
+compatibility_date = "2026-10-23"
+pages_build_output_dir = "."
+
+[vars]
+APP_TITLE = "BioMarkers — 3D-Native Organic Fiducial & Vascular Typography Lab"
+APP_URL = "https://biotype.pages.dev/markers"
+APP_VERSION = "2026.10.23"
+DEFAULT_HARNESS_VIEW = "2D"
