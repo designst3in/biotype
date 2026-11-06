@@ -47,7 +47,7 @@ Instead of a black-box legibility equation that automatically warps font outline
                                              ▼
 ┌──────────────────────────────────────────────────────────────────────────────────────────┐
 │ STAGE 4: POPULATED MATERIALS, REFERENCES & @GRAPHICSLAB CoC MICROSCOPE LENS JIG          │
-│ • Apply gathered Protozoa palettes (`palettes.json`), optical looks (`looks.py`), &      │
+│ • Apply gathered biotype palettes (`palettes.json`), optical looks (`looks.py`), &       │
 │   2.5D/3D Subsurface Gel/Goo shaders (`refs/goo/ref-1..4.mp4`, `organic-vein-ref.png`)   │
 │ • @graphics lab 3D CoC Microscope Lens: Signed thin-lens CoC from true 3D depth z(x,y),  │
 │   tilted Scheimpflug focal plane, Darkfield/Rheinberg annular ring-bokeh (inner=0.62),   │
@@ -60,13 +60,13 @@ Instead of a black-box legibility equation that automatically warps font outline
 1. **`wireframe-1-master-studio-dialkit.png`**: Master 3D BioType Studio UI showing the Left 4-Stage Sculpt & Brush Dock, Center 3D Volumetric Viewport (`(x,y,z)` Voronoi cage + 3D Spray Nozzle Cone + Tilted Scheimpflug Focal Plane Gizmo), Bottom Timeline/Focus-Hunt Curve Editor, and Right **Josh Puckett `DialKit` v2.0.2** Inspector.
 2. **`wireframe-2-under-structure-modes.png`**: Visual comparison & schematics of the **5 True-3D Under-Structure Modes (Modes A–D + Stage 2 Drawn 3D Spine + Stage 3B 3D Spray-to-Stick Wetting)**.
 3. **`wireframe-3-species-jigs-and-perf.png`**: Dedicated schematics & DialKit parameter clusters for **Jig 1 (`ParenchymaBotanica` 0.45×)**, **Jig 2 (`VascularHyphae` 1.35×)**, **Jig 3 (`PhysarumSwarmRD` 2.80×)**, **Jig 4 (`@graphics lab CoC Microscope Lens`)**, and the **Measured Runtime Performance Benchmark Table**.
-4. **`wireframe-4-materials-refs-modular-schema.png`**: Catalog of **9 Populated Protozoa Color Palettes & Optical Material Shaders**, **7 Built-In Reference Specimens/Clips**, and the **Modular Cross-Platform Package Architecture (`BioTypePackage.v1.json`)** bridging Web `DialKit` and macOS Native `ProtozoaControl`.
+4. **`wireframe-4-materials-refs-modular-schema.png`**: Catalog of **9 Populated BioType Color Palettes & Optical Material Shaders**, **7 Built-In Reference Specimens/Clips**, and the **Modular Cross-Platform Package Architecture (`BioTypePackage.v1.json`)** bridging Web `DialKit` and macOS native species-jig controls.
 
 ---
 
 ## 1. 3-Species + 3D Structure + CoC Lens Performance Benchmark (`benchmark_3_species.py`)
 
-We built and ran `/workspace/protozoa/visuals/life-finds-a-way/benchmark_3_species.py` across `N = 250`, `500`, `1,000`, and `2,500` 3D cells/nodes (`(x, y, z, nx, ny, nz, radius)` in `z ∈ [-8 mm, +8 mm]`). Full raw telemetry is saved in `/workspace/protozoa/visuals/life-finds-a-way/species_perf_benchmark.json`.
+We built and ran `/workspace/visuals/life-finds-a-way/benchmark_3_species.py` across `N = 250`, `500`, `1,000`, and `2,500` 3D cells/nodes (`(x, y, z, nx, ny, nz, radius)` in `z ∈ [-8 mm, +8 mm]`). Full raw telemetry is saved in `/workspace/visuals/life-finds-a-way/species_perf_benchmark.json`.
 
 ### 1.1 Measured Runtime Performance Table (`ms/frame` & Effective FPS)
 
@@ -178,7 +178,7 @@ Per AJ's `t363u` (*"or brush or spray in media to stick to it after"*):
 ## 4. Stage 4: @graphics lab's CoC Microscope Lens Jig & Populated Material/Reference Library
 
 ### 4.1 @graphics lab's 3D Circle of Confusion (CoC) Microscope Lens Engine (`Jig 4`)
-Built directly on `@graphics lab`'s research in `/workspace/protozoa/visuals/glab/src/darkfield_huddi.py` and `looks.py` (`tilted_coc`, `ring_kernel(r, inner=0.62)`, `ring_defocus`, and `track_plane`), upgraded to read **true 3D geometric node/pixel depth $z_{\text{scene}}(x, y) \in [-8\text{ mm}, +8\text{ mm}]$**:
+Built directly on `@graphics lab`'s research in `/workspace/visuals/glab/src/darkfield_huddi.py` and `looks.py` (`tilted_coc`, `ring_kernel(r, inner=0.62)`, `ring_defocus`, and `track_plane`), upgraded to read **true 3D geometric node/pixel depth $z_{\text{scene}}(x, y) \in [-8\text{ mm}, +8\text{ mm}]$**:
 
 1. **3D Tilted Scheimpflug Focal Plane Equation**:
    $$z_{\text{focus}}(x, y, t) = z_0(t) + (x - x_c)\tan\theta_x + (y - y_c)\tan\theta_y + k_{\text{petzval}}\big((x - x_c)^2 + (y - y_c)^2\big)$$
@@ -201,7 +201,7 @@ Built directly on `@graphics lab`'s research in `/workspace/protozoa/visuals/gla
 ---
 
 ### 4.2 Populated Color Palettes, Optical Materials & Reference Library (`palettes.json` + `looks.py` + `refs/goo/`)
-All gathered Protozoa palettes and reference materials are pre-populated as first-class selectable primitives in the Material & Reference Drawer (see Wireframe 04):
+All gathered biotype palettes and reference materials are pre-populated as first-class selectable primitives in the Material & Reference Drawer (see Wireframe 04):
 
 | Material / Look ID | Source File / Provenance | Core Hex Swatches | Optical & Physical Shader Primitives |
 | :--- | :--- | :--- | :--- |
@@ -213,11 +213,11 @@ All gathered Protozoa palettes and reference materials are pre-populated as firs
 | **`phase_contrast_airy`** | `glab/src/looks.py` (`look_phase`) | `#0b0f14`, `#475569`, `#cbd5e1`, `#f5e6a8`, `#33ff66` | Yin et al. (`PMC3372640`) obscured-Airy kernel $J_1(2\pi a r)/r - \beta J_1(2\pi(a-W_d)r)/r$ bright halo + shade-off |
 | **`crossed_polars_lut`** | `glab/src/looks.py` (`look_polar`) | `#08080c`, `#38bdf8`, `#f59e0b`, `#ec4899`, `#a855f7` | 24-wavelength Michel–Lévy CIE birefringence retardance LUT $I(\lambda) = \sin^2(2(\theta-p))\sin^2(\pi\Gamma/\lambda)$ |
 | **`goo_sss_orange_gel`** | `refs/goo/ref-1..4.mp4` (`STUDY.md`) | `#050507`, `#7c2d12`, `#ea580c`, `#fb923c`, `#ffffff` | Two-material subsurface orange core + clear refractive Fresnel gel membrane + pinpoint key speculars + viscous strands |
-| **`agar_colony_plates`** | `protozoa/palettes.json` (`agar`) | `#3d1a5b`, `#8b1a1a`, `#c8102e`, `#d9c38a`, `#f1e6c8` | *Serratia marcescens* crimson, *Chromobacterium violaceum* deep violet, *Staphylococcus* gold on nutrient agar |
+| **`agar_colony_plates`** | `palettes.json` (`agar`) | `#3d1a5b`, `#8b1a1a`, `#c8102e`, `#d9c38a`, `#f1e6c8` | *Serratia marcescens* crimson, *Chromobacterium violaceum* deep violet, *Staphylococcus* gold on nutrient agar |
 
 ---
 
-## 5. Josh Puckett `DialKit` (`v2.0.2`) on Web ↔ Native SwiftUI / `ProtozoaControl` on macOS
+## 5. Josh Puckett `DialKit` (`v2.0.2`) on Web ↔ Native SwiftUI / species-jig controls on macOS
 
 ### 5.1 Declarative Schema Binding (`dialkit` / `dialkit/vanilla` on Web, Native SwiftUI on Mac)
 Josh Puckett's **[DialKit](https://github.com/joshpuckett/dialkit)** (`dialkit@2.0.2`, supporting React `useDialKit` and dependency-free plain JS `dialkit/vanilla` `createDialKit`) uses a clean declarative object config where:
@@ -303,4 +303,4 @@ export const BioTypeJigSchema = {
 ### 5.2 Modular Tool Packaging (`BioTypePackage.v1.json`)
 Every structure, hand-drawn glyph skeleton, species anatomy configuration, CoC lens setting, and material palette serializes into a single portable `BioTypePackage.v1.json` file that can be loaded in:
 1. **`@biotype/web-studio`** (Browser WebGL2/Canvas2D + Josh Puckett `DialKit` v2.0.2), and
-2. **`Protozoa` macOS Native App** (`SwiftUI` inspector + `Metal` compute kernels + `ProtozoaControl` hardware rotary knobs / `VisionDial` optical fiducial dials).
+2. **BioType macOS native app** (`SwiftUI` inspector + `Metal` compute kernels + species-jig hardware rotary knobs / `VisionDial` optical fiducial dials).
